@@ -27,17 +27,17 @@ if st.button("Calcular"):
     taxa_decimal = taxa / 100
 
     valores = []
-    saldo = capital
+
 
     # ---- evolução mês a mês ----
     for mes in range(1, int(tempo) + 1):
-        saldo = capital * (1 + taxa_decimal) ** mes
-        valores.append(saldo)
+        montante = capital * (1 + taxa_decimal) ** mes
+        valores.append(montante)
 
     # ---- tabela ----
     df = pd.DataFrame({
         "Mês": range(1, int(tempo) + 1),
-        "Saldo": valores
+        "montante": valores
     })
 
     st.subheader("📋 Evolução mês a mês")
@@ -48,10 +48,10 @@ if st.button("Calcular"):
 
     fig, ax = plt.subplots()
 
-    ax.plot(df["Mês"], df["Saldo"], marker='o')
+    ax.plot(df["Mês"], df["montante"], marker='o')
 
     ax.set_xlabel("Mês")
-    ax.set_ylabel("Saldo (R$)")
+    ax.set_ylabel("montante (R$)")
 
     ax.set_xticks(range(1, int(tempo) + 1))
 
@@ -60,5 +60,5 @@ if st.button("Calcular"):
     st.pyplot(fig)
 
     # ---- resultado final ----
-    st.success(f"Montante Final: R$ {valores[-1]:.2f}")
+    st.success(f"montante Final: R$ {valores[-1]:.2f}")
     st.info(f"Lucro: R$ {valores[-1] - capital:.2f}")
