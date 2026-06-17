@@ -48,10 +48,10 @@ if st.button("Calcular"):
 
     fig, ax = plt.subplots()
 
-    ax.plot(df["Mês"], df["montante"], marker='o')
+    ax.plot(df["Mês"], df["Montante"], marker='o')
 
     ax.set_xlabel("Mês")
-    ax.set_ylabel("montante (R$)")
+    ax.set_ylabel("Montante (R$)")
 
     ax.set_xticks(range(1, int(tempo) + 1))
 
@@ -60,5 +60,5 @@ if st.button("Calcular"):
     st.pyplot(fig)
 
     # ---- resultado final ----
-    st.success(f"montante Final: R$ {valores[-1]:.2f}")
+    st.success(f"Montante Final: R$ {valores[-1]:.2f}")
     st.info(f"Lucro: R$ {valores[-1] - capital:.2f}")
