@@ -37,7 +37,7 @@ if st.button("Calcular"):
     # ---- tabela ----
     df = pd.DataFrame({
         "Mês": range(1, int(tempo) + 1),
-        "montante": valores
+        "Montante": valores
     })
 
     st.subheader("📋 Evolução mês a mês")
