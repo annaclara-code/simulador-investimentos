@@ -47,9 +47,15 @@ if st.button("Calcular"):
     st.subheader("📈 Crescimento do investimento")
 
     fig, ax = plt.subplots()
-    ax.plot(df["Mês"], df["Saldo"])
+
+    ax.plot(df["Mês"], df["Saldo"], marker='o')
+
     ax.set_xlabel("Mês")
     ax.set_ylabel("Saldo (R$)")
+
+    ax.set_xticks(range(1, int(tempo) + 1))
+
+    ax.grid(True, linestyle='--', alpha=0.5)
 
     st.pyplot(fig)
 
